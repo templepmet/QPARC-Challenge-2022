@@ -4,7 +4,7 @@ from qulacs.gate import CZ, RY
 # Set up the ansatz
 
 
-def ry_ansatz_circuit(n_qubits, depth, theta_list):
+def ry_ansatz_circuit(theta_list, *, n_qubits, depth):
     """ry_ansatz_circuit
     Returns Ry ansatz circuit.
 

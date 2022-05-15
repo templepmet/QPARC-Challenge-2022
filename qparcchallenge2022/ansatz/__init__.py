@@ -1,3 +1,6 @@
-from qparcchallenge2022.ansatz.get_ansatz import AnsatzType, get_ansatz
+from qparcchallenge2022.ansatz.get_ansatz_generator import (
+    AnsatzType,
+    get_ansatz_generator,
+)
 
-__all__ = ["get_ansatz", "AnsatzType"]
+__all__ = ["get_ansatz_generator", "AnsatzType"]

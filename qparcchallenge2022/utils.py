@@ -45,7 +45,7 @@ def get_terms_and_measurement_circuits(observable):
     return pauli_coef, pauli_target, pauli_gate
 
 
-def get_energy(n_shots, state, hamiltonian, circuit, executor):
+def get_energy(theta_list, n_shots, state, hamiltonian, circuit_generator, executor):
     """get_energy
     Returns the evaluated energy
 
@@ -64,10 +64,20 @@ def get_energy(n_shots, state, hamiltonian, circuit, executor):
         ret:
             The evaluated energy.
     """
+    circuit = circuit_generator(theta_list)
+
+    from qulacs import QuantumState
+
+    n_qubits = hamiltonian.get_qubit_count()
+    qstate = QuantumState(n_qubits)
+    qstate.set_computational_basis(state)
+    circuit.update_quantum_state(qstate)
+    print(hamiltonian.get_expectation_value(qstate))
+    return hamiltonian.get_expectation_value(qstate)
+
     pauli_coef, pauli_target, pauli_gate = get_terms_and_measurement_circuits(
         hamiltonian
     )
-    n_qubits = hamiltonian.get_qubit_count()
     ret = 0
     for coef, target, gate in zip(pauli_coef, pauli_target, pauli_gate):
         if target:
@@ -89,3 +99,50 @@ def get_energy(n_shots, state, hamiltonian, circuit, executor):
             ret += coef
 
     return ret.real
+
+
+def get_gradient(theta_list, n_shots, state, hamiltonian, circuit_generator, executor):
+    """get_gradient
+    Returns the evaluated gradient of the energy in the parameter space.
+
+    Args:
+        theta_list:
+            The parameters
+        n_shots:
+            The number of shots used to evaluate each term.
+        depth:
+            The depth of the ansatz
+        state:
+            The integer that defines the initial state in the computational basis.
+        hamiltonian:
+            The Hamiltonian to be evaluated.
+    Returns:
+        np.array(g):
+            The gradient of the energy in the parameter space.
+    """
+    g = []
+
+    param_dim = len(theta_list)
+    for i in range(param_dim):
+        shift = np.zeros(param_dim)
+        shift[i] = 0.5 * np.pi
+        gi = 0.5 * (
+            get_energy(
+                theta_list=theta_list + shift,
+                n_shots=n_shots,
+                state=state,
+                hamiltonian=hamiltonian,
+                circuit_generator=circuit_generator,
+                executor=executor,
+            )
+            - get_energy(
+                theta_list=theta_list - shift,
+                n_shots=n_shots,
+                state=state,
+                hamiltonian=hamiltonian,
+                circuit_generator=circuit_generator,
+                executor=executor,
+            )
+        )
+        g.append(gi)
+    return np.array(g)

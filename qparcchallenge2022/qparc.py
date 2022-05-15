@@ -154,10 +154,10 @@ class QulacsExecutor:
 
 
 class Observable(QulacsObservable):
-    def get_expectation_value(self, state):
-        raise NotImplementedError(
-            "You cannot use a statevector simulator. Use qulacs.Observable for debugging."
-        )
+    # def get_expectation_value(self, state):
+    #    raise NotImplementedError(
+    #        "You cannot use a statevector simulator. Use qulacs.Observable for debugging."
+    #    )
 
     def get_transition_amplitude(self, state1, state2):
         raise NotImplementedError(
