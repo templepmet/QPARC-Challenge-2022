@@ -48,7 +48,11 @@ def _get_qulacs_hamiltonian(executor):
     # get the problem hamiltonian.
     fermionic_hamiltonian, n_qubits = executor.get_problem_hamiltonian()
     # change hamiltonian's qubit order so that we have near
-    mapping = [0, 4, 1, 5, 2, 6, 3, 7]
+    mapping = []
+    
+    for i in range(n_qubits//2):
+        mapping.append(i)
+        mapping.append(i+n_qubits//2)
     my_opr = FermionOperator()
     for aa in fermionic_hamiltonian.terms:
         kou = fermionic_hamiltonian.terms[aa]
