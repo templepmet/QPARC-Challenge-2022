@@ -1,7 +1,5 @@
-import warnings
 from typing import List, Tuple, Union
 
-import numpy as np
 from openfermion import FermionOperator
 from openfermion.chem import MolecularData
 from openfermion.transforms import get_fermion_operator
@@ -12,6 +10,8 @@ from qulacs import QuantumState as QulacsQuantumState
 from qulacs.observable import (
     create_observable_from_openfermion_text as qulacs_create_observable_from_openfermion_text,
 )
+import warnings
+import numpy as np
 
 MAX_SHOTS = int(1e8)
 
@@ -54,11 +54,6 @@ class QulacsExecutor:
         distance = 1.0
         geometry = [["H", [0, 0, distance * i]] for i in range(4)]
         description = "H4"
-        """
-        charge = 0
-        geometry = [["H", [0, 0, 0]],["H", [0, 0, 1]],["H", [0, 1, 0]],["H", [1, 0, 0]],["H", [1, 1, 1]],["H", [1, 2, 1]]]
-        description = "H6"
-        """
         molecule = MolecularData(geometry, basis, multiplicity, charge, description)
         molecule = run_pyscf(molecule, run_scf=1, run_fci=1)
         self.hf_energy = molecule.hf_energy
@@ -124,7 +119,7 @@ class QulacsExecutor:
         if verbose:
             print("\n############## Result ##############")
             print(f"Resulting energy = {self._current_value}")
-            print(f"total_shots = {self.total_shots}")
+            print(f"total_shots =", self.total_shots)
             print("------------------------------------")
             print(f"FCI energy = {self.fci_energy}")
             print(f"HF energy = {self.hf_energy}")
@@ -147,9 +142,9 @@ class QulacsExecutor:
             raise ValueError("You should record the result ten times.")
 
         print("\n############## Final Result ##############")
-        print(f"Average energy: {np.average(self._result)}")
+        print(f"Average energy:", np.average(self._result))
         print(
-            "Average accuracy: ",
+            f"Average accuracy:",
             np.average([np.abs(res - self.fci_energy) for res in self._result]),
         )
         print("------------------------------------------")
@@ -159,10 +154,10 @@ class QulacsExecutor:
 
 
 class Observable(QulacsObservable):
-    # def get_expectation_value(self, state):
-    #    raise NotImplementedError(
-    #        "You cannot use a statevector simulator. Use qulacs.Observable for debugging."
-    #    )
+    def get_expectation_value(self, state):
+        raise NotImplementedError(
+            "You cannot use a statevector simulator. Use qulacs.Observable for debugging."
+        )
 
     def get_transition_amplitude(self, state1, state2):
         raise NotImplementedError(
@@ -170,8 +165,8 @@ class Observable(QulacsObservable):
         )
 
 
-def create_observable_from_openfermion_text(text: str):
-    obs2 = qulacs_create_observable_from_openfermion_text(text)
+def create_observable_from_openfermion_text(str):
+    obs2 = qulacs_create_observable_from_openfermion_text(str)
     n_qubits = obs2.get_qubit_count()
     obs = Observable(n_qubits)
     for i_term in range(obs2.get_term_count()):
