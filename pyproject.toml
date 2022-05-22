@@ -5,7 +5,7 @@ description = ""
 authors = ["kotamanegi <kotamanegi84@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.7"
 pyscf = "^2.0.1"
 openfermionpyscf = "^0.5"
 Qulacs = "^0.3.0"
