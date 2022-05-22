@@ -49,7 +49,7 @@ def _get_qulacs_hamiltonian(executor):
     fermionic_hamiltonian, n_qubits = executor.get_problem_hamiltonian()
     # change hamiltonian's qubit order so that we have near
     mapping = []
-    
+
     for i in range(n_qubits//2):
         mapping.append(i)
         mapping.append(i+n_qubits//2)
@@ -124,6 +124,9 @@ def run_single_experiment(
                 change_kak = -1.0
             theta_list[target_idx] -= change_kak
             current_heat *= heat_reduce_factor
+
+            if _ % 20 == 0:
+                print ("finished",_,"/",loop_times)
 
         # run the optimized theta_list and record the final result.
         cost_func(theta_list)

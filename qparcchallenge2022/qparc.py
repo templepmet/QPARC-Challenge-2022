@@ -13,7 +13,7 @@ from qulacs.observable import (
     create_observable_from_openfermion_text as qulacs_create_observable_from_openfermion_text,
 )
 
-MAX_SHOTS = int(1e8)
+MAX_SHOTS = int(3e7)
 
 
 class QulacsExecutor:
@@ -50,10 +50,9 @@ class QulacsExecutor:
         """
         basis = "sto-3g"
         multiplicity = 1
-        charge = 0
-        distance = 1.0
-        geometry = [["H", [0, 0, distance * i]] for i in range(4)]
-        description = "H4"
+        charge = 1
+        geometry = [["H", [0, 0, 0]],["H", [0, 0, 1]],["H", [0, 1, 0]],["H", [1, 0, 0]],["H", [1, 1, 1]],["H", [1, 2, 1]]]
+        description = "H6"
         molecule = MolecularData(geometry, basis, multiplicity, charge, description)
         molecule = run_pyscf(molecule, run_scf=1, run_fci=1)
         self.hf_energy = molecule.hf_energy
