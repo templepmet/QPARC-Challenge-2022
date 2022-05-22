@@ -72,7 +72,7 @@ def _get_qulacs_hamiltonian(executor):
 
 
 def run_single_experiment(
-    *, n_shots, evaluation_cost_of_hamiltonian, initial_state, depth, executor,chu_shots=1000,fin_shots=10000
+    *, n_shots, initial_state, depth, executor, debug_shots=0, fin_shots=50000, annel_num=4
 ):
     # get the problem hamiltonian.
     qulacs_hamiltonian, n_qubits = _get_qulacs_hamiltonian(executor)
@@ -95,44 +95,76 @@ def run_single_experiment(
     )
 
     # optimize using annealing method.
-    theta_list = np.random.random(theta_len) * 1.1
-    loop_times = int(MAX_SHOTS / (n_shots * 2 * evaluation_cost_of_hamiltonian))
-    current_heat = 1.5
-    heat_reduce_factor = 0.01 ** (1 / loop_times)
+    
+    #loop_times = int(MAX_SHOTS / (n_shots * 2 * evaluation_cost_of_hamiltonian))
+    start_heat = 1.5
+    pow_atai = 1.2
 
+    min_score = 1e9
+    scores=[]
     try:
-        for _ in range(loop_times):
-            # 1. get slope of theta_list[target_index]
-            # 2. move theta_list[target_index] by current_heat * (slope of theta_list[target_index])
-            # 3. reduce current_heat using heat_reduce_factor (like cooling)
-            target_idx = randint(0, theta_len - 1)
+        for aaaaa in range(annel_num):
 
-            theta_list[target_idx] += np.pi * 0.5
-            pata_data = make_pair_patan(n_qubits)
-            cost_A = cost_func(theta_list,n_shots=n_shots,pata_data=pata_data)
-            theta_list[target_idx] -= np.pi
-            cost_B = cost_func(theta_list,n_shots=n_shots,pata_data=pata_data)
-            theta_list[target_idx] += np.pi * 0.5
-            slope = cost_A - cost_B
+            theta_list = np.random.random(theta_len) * 1.1
+            # 1回のループでどれだけのshotを消費するか予測する
 
-            change_kak = current_heat * slope
-            if change_kak > 1.0:
-                change_kak = 1.0
-            if change_kak < -1.0:
-                change_kak = -1.0
-            theta_list[target_idx] -= change_kak
-            current_heat *= heat_reduce_factor
+            fin_loop_ratio = fin_shots / (n_shots*2)
+            loop_num = 0
+            shot_per_loop = 1
+            annel_shots = MAX_SHOTS/annel_num
+            inn_shots = executor.total_shots
 
-            if _ % 20 == 0:
-                print ("finished",_,"/",loop_times)
-                if chu_shots > 1:
-                    print("energy=",cost_func(theta_list,n_shots=chu_shots,pata_data=pata_data))
+            while (executor.total_shots-inn_shots) + (fin_loop_ratio + 10) * shot_per_loop < annel_shots:
+                # 1. get slope of theta_list[target_index]
+                # 2. move theta_list[target_index] by current_heat * (slope of theta_list[target_index])
+                # 3. reduce current_heat using heat_reduce_factor (like cooling)
+                target_idx = randint(0, theta_len - 1)
 
-        # run the optimized theta_list and record the final result.
-        cost_func(theta_list,n_shots=fin_shots,pata_data=pata_data)
+                theta_list[target_idx] += np.pi * 0.5
+                pata_data = make_pair_patan(n_qubits)
+                cost_A = cost_func(theta_list,n_shots=n_shots,pata_data=pata_data)
+                theta_list[target_idx] -= np.pi
+                cost_B = cost_func(theta_list,n_shots=n_shots,pata_data=pata_data)
+                theta_list[target_idx] += np.pi * 0.5
+                slope = cost_A - cost_B
+
+                loop_num+=1
+                shot_per_loop = (executor.total_shots-inn_shots) / loop_num
+
+                used_wariai = (executor.total_shots-inn_shots) / (annel_shots - fin_loop_ratio * shot_per_loop)
+                current_heat = start_heat * ((1-used_wariai)** pow_atai)
+
+                change_kak = slope * current_heat
+                if change_kak > 1.0:
+                    change_kak = 1.0
+                if change_kak < -1.0:
+                    change_kak = -1.0
+                theta_list[target_idx] -= change_kak
+
+                if loop_num % 20 == 1:
+                    print ("used_wariai=" , used_wariai,"current_heat=" , current_heat)
+                    print ("loop_num=",loop_num, "/" , loop_num / used_wariai)
+                    if debug_shots > 1:
+                        pre_debug=executor.total_shots
+                        print("energy=",cost_func(theta_list,n_shots=debug_shots,pata_data=pata_data))
+                        executor.total_shots=pre_debug
+                        print()
+                        # this is use ONLY DEBUG MODE 
+
+            # run the optimized theta_list and record the final result.
+            now_score = cost_func(theta_list,n_shots=fin_shots,pata_data=pata_data)
+            if min_score > now_score:
+                min_score = now_score
+            print("XXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+            print("now_score=",now_score)
+            print("XXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+            scores.append(now_score)
+        print("XXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+        print("min_score=",min_score)
+        print("XXXXXXXXXXXXXXXXXXXXXXXXXXXX")
     except TotalShotsExceeded:
         print(
             f"Terminated because total shots exceeded the limit of MAX_SHOTS = {MAX_SHOTS}"
         )
     finally:
-        executor.record_result()
+        min_score
