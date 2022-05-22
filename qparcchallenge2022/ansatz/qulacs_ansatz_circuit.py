@@ -41,3 +41,19 @@ def qulacs_ansatz_circuit(theta_list, *, n_qubits, depth):
         )
 
     return circuit
+
+
+def qulacs_ansatz_circuit_theta_len(n_qubits, depth):
+    """qulacs_ansatz_circuit
+    Returns length of theta_list for qulacs ansatz circuit.
+
+    Args:
+        n_qubits:
+            The number of qubit used
+        depth:
+            Depth of the circuit.
+    Returns:
+        theta_len:
+            length of theta_list for qulacs ansatz circuit.
+    """
+    return (depth + 1) * n_qubits * 2
