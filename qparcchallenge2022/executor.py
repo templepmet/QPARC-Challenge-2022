@@ -72,7 +72,7 @@ def _get_qulacs_hamiltonian(executor):
 
 
 def run_single_experiment(
-    *, n_shots, evaluation_cost_of_hamiltonian, initial_state, depth, executor
+    *, n_shots, evaluation_cost_of_hamiltonian, initial_state, depth, executor,chu_shots=1000,fin_shots=10000
 ):
     # get the problem hamiltonian.
     qulacs_hamiltonian, n_qubits = _get_qulacs_hamiltonian(executor)
@@ -88,8 +88,6 @@ def run_single_experiment(
     cost_func = partial(
         _cost,
         initial_state=initial_state,
-        n_shots=n_shots,
-        pata_data=pata_data,
         hamiltonian_data=hamiltonian_data,
         executor=executor,
         n_qubits=n_qubits,
@@ -111,9 +109,9 @@ def run_single_experiment(
 
             theta_list[target_idx] += np.pi * 0.5
             pata_data = make_pair_patan(n_qubits)
-            cost_A = cost_func(theta_list)
+            cost_A = cost_func(theta_list,n_shots=n_shots,pata_data=pata_data)
             theta_list[target_idx] -= np.pi
-            cost_B = cost_func(theta_list)
+            cost_B = cost_func(theta_list,n_shots=n_shots,pata_data=pata_data)
             theta_list[target_idx] += np.pi * 0.5
             slope = cost_A - cost_B
 
@@ -127,9 +125,11 @@ def run_single_experiment(
 
             if _ % 20 == 0:
                 print ("finished",_,"/",loop_times)
+                if chu_shots > 1:
+                    print("energy=",cost_func(theta_list,n_shots=chu_shots,pata_data=pata_data))
 
         # run the optimized theta_list and record the final result.
-        cost_func(theta_list)
+        cost_func(theta_list,n_shots=fin_shots,pata_data=pata_data)
     except TotalShotsExceeded:
         print(
             f"Terminated because total shots exceeded the limit of MAX_SHOTS = {MAX_SHOTS}"

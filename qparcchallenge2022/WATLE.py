@@ -2,6 +2,7 @@ import random
 from typing import Counter
 
 import numpy as np
+import copy
 from qulacs.gate import CNOT, CZ, RX, H, Z
 
 
@@ -66,7 +67,6 @@ def make_pair_patan(n_qubit):
     pata_Uyobi = []
     pata_Dyobi = []
 
-    print(ha_qubit)
     for i in range(loop_qubit):
         XX_pairs = []
         if ha_qubit % 2 == 0:
@@ -160,8 +160,7 @@ def get_energy_EX(
     # 各pairにXX,他はZZで測定　(all_Zとone_XXとtwo_XXの一部)
 
     # two_XXの測定を行う
-    pata_XXUDs = pata_yobi
-
+    pata_XXUDs = copy.copy(pata_yobi)
     for i in range(loop_qubit):
         for j in range(loop_qubit):
             # 「上下ヒット」があるかどうかを数え、ないならばcontinue
@@ -177,8 +176,8 @@ def get_energy_EX(
                 continue
             
             pata_XXUDs .append(pata_XXU[i] + pata_XXD[j])
-
     for pata_XXUD in pata_XXUDs:
+        
         gen_cir = circuit.copy()
         pair_syo = list(range(n_qubit))
         
@@ -463,6 +462,4 @@ def get_energy_EX(
             cally *= 0.7
         cally += 0.3
         two_XX[it] = (coef, cally, mes_sum, mes_count)
-        if cally > 2:
-            print("cally")
     return ret.real

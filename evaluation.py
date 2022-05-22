@@ -9,7 +9,7 @@ executor = QulacsExecutor()
 
 # Define input settings
 n_shots = 1000
-evaluation_cost_of_hamiltonian = 60
+evaluation_cost_of_hamiltonian = 18
 initial_state = 0b10101010
 depth = 2
 
