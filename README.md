@@ -7,12 +7,15 @@ Install poetry using `pip install poetry`.
 Then
 ```
 poetry install
-poetry run python Source.py
+poetry run python evaluation.py
 ```
 
 ### without poetry
 
 ```
 pip install .
-python Source.py
+python evaluation.py
 ```
+
+`evaluation.py` runs experiment 10 times and records final result.
+`single.py` runs experiment single times for testing purpose.
