@@ -1,5 +1,7 @@
+import warnings
 from typing import List, Tuple, Union
 
+import numpy as np
 from openfermion import FermionOperator
 from openfermion.chem import MolecularData
 from openfermion.transforms import get_fermion_operator
@@ -10,8 +12,6 @@ from qulacs import QuantumState as QulacsQuantumState
 from qulacs.observable import (
     create_observable_from_openfermion_text as qulacs_create_observable_from_openfermion_text,
 )
-import warnings
-import numpy as np
 
 MAX_SHOTS = int(1e8)
 
