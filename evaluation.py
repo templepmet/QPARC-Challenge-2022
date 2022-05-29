@@ -19,7 +19,7 @@ logger.addHandler(handler)
 executor = QulacsExecutor()
 
 # Define input settings
-n_shots = 3000
+n_shots = 1000
 initial_state = 0b10101010
 depth = 2
 

@@ -20,7 +20,7 @@ def scipy_optimizer(
     options={"disp": True, "maxiter": 10000},
     grad=(),
 ):
-    init_theta_list = np.random.random(theta_len) * 0.01
+    init_theta_list = np.random.random(theta_len) * 1.1
     try:
         result_minimize = minimize(
             cost_func,
