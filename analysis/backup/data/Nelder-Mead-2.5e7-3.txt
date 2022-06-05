@@ -1,0 +1,128 @@
+The number of total shots exceeded the limit.
+WARNING: We don't run final evaluation for optimized value.
+This indicates that result may have statistics error.
+
+############## Result ##############
+Resulting energy = 0.16893156695365422
+total_shots = 25000000
+------------------------------------
+FCI energy = -2.1663874486347607
+HF energy = -2.098545936997761
+####################################
+
+The number of total shots exceeded the limit.
+WARNING: We don't run final evaluation for optimized value.
+This indicates that result may have statistics error.
+
+############## Result ##############
+Resulting energy = 0.31860006732213014
+total_shots = 25000000
+------------------------------------
+FCI energy = -2.1663874486347607
+HF energy = -2.0985459369977617
+####################################
+
+The number of total shots exceeded the limit.
+WARNING: We don't run final evaluation for optimized value.
+This indicates that result may have statistics error.
+
+############## Result ##############
+Resulting energy = 0
+total_shots = 25000000
+------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977617
+####################################
+
+The number of total shots exceeded the limit.
+WARNING: We don't run final evaluation for optimized value.
+This indicates that result may have statistics error.
+
+############## Result ##############
+Resulting energy = 0.1292495285365657
+total_shots = 25000000
+------------------------------------
+FCI energy = -2.1663874486347625
+HF energy = -2.0985459369977635
+####################################
+
+The number of total shots exceeded the limit.
+WARNING: We don't run final evaluation for optimized value.
+This indicates that result may have statistics error.
+
+############## Result ##############
+Resulting energy = 0.02811418118623558
+total_shots = 25000000
+------------------------------------
+FCI energy = -2.1663874486347607
+HF energy = -2.0985459369977626
+####################################
+
+The number of total shots exceeded the limit.
+WARNING: We don't run final evaluation for optimized value.
+This indicates that result may have statistics error.
+
+############## Result ##############
+Resulting energy = 0.0836534525185657
+total_shots = 25000000
+------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977626
+####################################
+
+The number of total shots exceeded the limit.
+WARNING: We don't run final evaluation for optimized value.
+This indicates that result may have statistics error.
+
+############## Result ##############
+Resulting energy = 0
+total_shots = 25000000
+------------------------------------
+FCI energy = -2.1663874486347625
+HF energy = -2.098545936997761
+####################################
+
+The number of total shots exceeded the limit.
+WARNING: We don't run final evaluation for optimized value.
+This indicates that result may have statistics error.
+
+############## Result ##############
+Resulting energy = 0.08605746995684913
+total_shots = 25000000
+------------------------------------
+FCI energy = -2.1663874486347625
+HF energy = -2.0985459369977617
+####################################
+
+The number of total shots exceeded the limit.
+WARNING: We don't run final evaluation for optimized value.
+This indicates that result may have statistics error.
+
+############## Result ##############
+Resulting energy = 0.37470607716250204
+total_shots = 25000000
+------------------------------------
+FCI energy = -2.166387448634766
+HF energy = -2.0985459369977626
+####################################
+
+The number of total shots exceeded the limit.
+WARNING: We don't run final evaluation for optimized value.
+This indicates that result may have statistics error.
+
+############## Result ##############
+Resulting energy = 0.09358049346803722
+total_shots = 25000000
+------------------------------------
+FCI energy = -2.1663874486347625
+HF energy = -2.0985459369977617
+####################################
+
+
+############## Final Result ##############
+Average energy: 0.12828928371045398
+Average accuracy: 2.294676732345217
+------------------------------------------
+FCI energy = -2.1663874486347625
+HF energy = -2.0985459369977617
+##########################################

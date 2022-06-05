@@ -1,0 +1,169 @@
+Powell
+Optimization terminated successfully.
+         Current function value: -2.081167
+         Iterations: 7
+         Function evaluations: 3214
+Optimization finished without reaching the shot limit.
+Now Runs final evaluation for optimized value.
+WARNING: we changed total_shots value so that for contest we can't use this result.
+
+############## Result ##############
+Resulting energy = -2.0642755019147168
+total_shots = 28926000
+------------------------------------
+FCI energy = -2.1663874486347625
+HF energy = -2.098545936997761
+####################################
+
+Optimization terminated successfully.
+         Current function value: -2.059838
+         Iterations: 3
+         Function evaluations: 1233
+Optimization finished without reaching the shot limit.
+Now Runs final evaluation for optimized value.
+WARNING: we changed total_shots value so that for contest we can't use this result.
+
+############## Result ##############
+Resulting energy = -2.046221834165082
+total_shots = 11097000
+------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977626
+####################################
+
+Optimization terminated successfully.
+         Current function value: -1.834278
+         Iterations: 5
+         Function evaluations: 2138
+Optimization finished without reaching the shot limit.
+Now Runs final evaluation for optimized value.
+WARNING: we changed total_shots value so that for contest we can't use this result.
+
+############## Result ##############
+Resulting energy = -1.8248140274537727
+total_shots = 19242000
+------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977626
+####################################
+
+Optimization terminated successfully.
+         Current function value: -2.054430
+         Iterations: 3
+         Function evaluations: 1309
+Optimization finished without reaching the shot limit.
+Now Runs final evaluation for optimized value.
+WARNING: we changed total_shots value so that for contest we can't use this result.
+
+############## Result ##############
+Resulting energy = -2.0403395012499304
+total_shots = 11781000
+------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977626
+####################################
+
+Optimization terminated successfully.
+         Current function value: -2.069563
+         Iterations: 6
+         Function evaluations: 2709
+Optimization finished without reaching the shot limit.
+Now Runs final evaluation for optimized value.
+WARNING: we changed total_shots value so that for contest we can't use this result.
+
+############## Result ##############
+Resulting energy = -2.0488022170264344
+total_shots = 24381000
+------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977626
+####################################
+
+Optimization terminated successfully.
+         Current function value: -2.079177
+         Iterations: 3
+         Function evaluations: 1333
+Optimization finished without reaching the shot limit.
+Now Runs final evaluation for optimized value.
+WARNING: we changed total_shots value so that for contest we can't use this result.
+
+############## Result ##############
+Resulting energy = -2.0609302546199726
+total_shots = 11997000
+------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977626
+####################################
+
+Optimization terminated successfully.
+         Current function value: -2.081158
+         Iterations: 4
+         Function evaluations: 1643
+Optimization finished without reaching the shot limit.
+Now Runs final evaluation for optimized value.
+WARNING: we changed total_shots value so that for contest we can't use this result.
+
+############## Result ##############
+Resulting energy = -2.072824303429462
+total_shots = 14787000
+------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977626
+####################################
+
+Optimization terminated successfully.
+         Current function value: -2.065563
+         Iterations: 3
+         Function evaluations: 1318
+Optimization finished without reaching the shot limit.
+Now Runs final evaluation for optimized value.
+WARNING: we changed total_shots value so that for contest we can't use this result.
+
+############## Result ##############
+Resulting energy = -2.0392194488555773
+total_shots = 11862000
+------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977626
+####################################
+
+Optimization terminated successfully.
+         Current function value: -2.049791
+         Iterations: 3
+         Function evaluations: 1379
+Optimization finished without reaching the shot limit.
+Now Runs final evaluation for optimized value.
+WARNING: we changed total_shots value so that for contest we can't use this result.
+
+############## Result ##############
+Resulting energy = -2.0313492087097997
+total_shots = 12411000
+------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977626
+####################################
+
+Optimization terminated successfully.
+         Current function value: -2.078303
+         Iterations: 4
+         Function evaluations: 1649
+Optimization finished without reaching the shot limit.
+Now Runs final evaluation for optimized value.
+WARNING: we changed total_shots value so that for contest we can't use this result.
+
+############## Result ##############
+Resulting energy = -2.0683750446200655
+total_shots = 14841000
+------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977626
+####################################
+
+
+############## Final Result ##############
+Average energy: -2.0297151342044812
+Average accuracy: 0.136672314430283
+------------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977626
+##########################################

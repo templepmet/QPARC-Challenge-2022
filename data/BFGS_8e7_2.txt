@@ -1,0 +1,183 @@
+BFGS
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: -2.116150
+         Iterations: 17
+         Function evaluations: 49
+         Gradient evaluations: 37
+Optimization finished without reaching the shot limit.
+Now Runs final evaluation for optimized value.
+WARNING: we changed total_shots value so that for contest we can't use this result.
+
+############## Result ##############
+Resulting energy = -2.0980820581007458
+total_shots = 16425000
+------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977617
+####################################
+
+Divide-by-zero encountered: rhok assumed large
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: -2.108439
+         Iterations: 13
+         Function evaluations: 39
+         Gradient evaluations: 27
+Optimization finished without reaching the shot limit.
+Now Runs final evaluation for optimized value.
+WARNING: we changed total_shots value so that for contest we can't use this result.
+
+############## Result ##############
+Resulting energy = -2.088364360609189
+total_shots = 12015000
+------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977626
+####################################
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: -2.099073
+         Iterations: 15
+         Function evaluations: 46
+         Gradient evaluations: 29
+Optimization finished without reaching the shot limit.
+Now Runs final evaluation for optimized value.
+WARNING: we changed total_shots value so that for contest we can't use this result.
+
+############## Result ##############
+Resulting energy = -2.077330162228728
+total_shots = 12942000
+------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977626
+####################################
+
+Divide-by-zero encountered: rhok assumed large
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: -2.114938
+         Iterations: 15
+         Function evaluations: 49
+         Gradient evaluations: 37
+Optimization finished without reaching the shot limit.
+Now Runs final evaluation for optimized value.
+WARNING: we changed total_shots value so that for contest we can't use this result.
+
+############## Result ##############
+Resulting energy = -2.0938108785739287
+total_shots = 16425000
+------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977626
+####################################
+
+Divide-by-zero encountered: rhok assumed large
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: -2.114084
+         Iterations: 23
+         Function evaluations: 63
+         Gradient evaluations: 47
+Optimization finished without reaching the shot limit.
+Now Runs final evaluation for optimized value.
+WARNING: we changed total_shots value so that for contest we can't use this result.
+
+############## Result ##############
+Resulting energy = -2.098286452916469
+total_shots = 20871000
+------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977626
+####################################
+
+Divide-by-zero encountered: rhok assumed large
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: -2.102224
+         Iterations: 18
+         Function evaluations: 53
+         Gradient evaluations: 39
+Optimization finished without reaching the shot limit.
+Now Runs final evaluation for optimized value.
+WARNING: we changed total_shots value so that for contest we can't use this result.
+
+############## Result ##############
+Resulting energy = -2.091222858147734
+total_shots = 17325000
+------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977626
+####################################
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: -2.107824
+         Iterations: 10
+         Function evaluations: 31
+         Gradient evaluations: 20
+Optimization finished without reaching the shot limit.
+Now Runs final evaluation for optimized value.
+WARNING: we changed total_shots value so that for contest we can't use this result.
+
+############## Result ##############
+Resulting energy = -2.0964347203927427
+total_shots = 8919000
+------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977626
+####################################
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: -1.863242
+         Iterations: 11
+         Function evaluations: 35
+         Gradient evaluations: 23
+Optimization finished without reaching the shot limit.
+Now Runs final evaluation for optimized value.
+WARNING: we changed total_shots value so that for contest we can't use this result.
+
+############## Result ##############
+Resulting energy = -1.8584587108605695
+total_shots = 10251000
+------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977626
+####################################
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: -2.120233
+         Iterations: 15
+         Function evaluations: 45
+         Gradient evaluations: 30
+Optimization finished without reaching the shot limit.
+Now Runs final evaluation for optimized value.
+WARNING: we changed total_shots value so that for contest we can't use this result.
+
+############## Result ##############
+Resulting energy = -2.0966046160115623
+total_shots = 13365000
+------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977626
+####################################
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: -2.124173
+         Iterations: 11
+         Function evaluations: 51
+         Gradient evaluations: 29
+Optimization finished without reaching the shot limit.
+Now Runs final evaluation for optimized value.
+WARNING: we changed total_shots value so that for contest we can't use this result.
+
+############## Result ##############
+Resulting energy = -2.09855883461409
+total_shots = 12987000
+------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977626
+####################################
+
+
+############## Final Result ##############
+Average energy: -2.0697153652455755
+Average accuracy: 0.09667208338918838
+------------------------------------------
+FCI energy = -2.1663874486347643
+HF energy = -2.0985459369977626
+##########################################
